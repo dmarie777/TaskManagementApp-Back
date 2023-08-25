@@ -19,7 +19,7 @@ const router = express.Router()
 
 // CRUD
 router.get('/', (req, res) => {
-    res.send("Hello World")
+    res.json({message: "Hello World"})
 })
 
 app.use('/',router)
