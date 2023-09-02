@@ -19,4 +19,17 @@ router.post("/signup", async (req, res) => {
     }
 })
 
+// router.get('/login', (request, response) => {
+//     collection.find({},(err,data)=> {
+//         if(err){
+//             response.end();
+//             return;
+//         }
+//         response.json(data);
+//     })
+//     console.log('hey');
+// })
+
+
+
 module.exports = router
