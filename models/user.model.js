@@ -37,7 +37,17 @@ userSchema.pre('save', function(next) {
         next();
     }
 });
+/////////////Authentication///////////////////
 
+userSchema.methods.isCorrectPassword = function (password, callback) {
+    bcrypt.compare(password, this.password, function(err, same) {
+        if (err) {
+            callback(err);
+        } else {
+            callback(err, same);
+        }
+    });
+}
 
 const collection = mongoose.model(
     "User",
