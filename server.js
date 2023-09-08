@@ -6,7 +6,6 @@ const dotenv = require("dotenv")
 dotenv.config()
 
 const app = express()
-
 const port = process.env.PORT || 3001
 
 app.use(logger("dev"))
@@ -32,10 +31,11 @@ const routes = require('./routes/user.routes')
 app.use('/api', routes)
 
 router.get('/', (req, res) => {
-    res.json({message: "Hello World!"})
+    res.json({ message: "Hello World!"})
 })
 
 app.use('/',router)
+
 
 app.listen(port, function() {
     console.log("Running on " + port)
