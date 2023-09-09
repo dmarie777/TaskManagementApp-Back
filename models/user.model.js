@@ -49,8 +49,8 @@ userSchema.methods.isCorrectPassword = function (password, callback) {
     });
 }
 
-const collection = mongoose.model(
+const User = mongoose.model(
     "User",
     userSchema
 )
-module.exports = collection
+module.exports = User
