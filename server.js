@@ -3,6 +3,7 @@ const cors = require("cors")
 const bodyParser = require("body-parser")
 const logger = require("morgan")
 const dotenv = require("dotenv")
+const auth = require("./auth")
 dotenv.config()
 
 const app = express()
@@ -36,6 +37,13 @@ router.get('/', (req, res) => {
 
 app.use('/',router)
 
+app.get("/free-endpoint", (req, res) => {
+    res.json( { message: "You are free to access me anytime" } )
+})
+
+app.get( "/auth-endpoint", auth, (req, res) => {
+    res.json( {message: "You are authorized to access me" } )
+} )
 
 app.listen(port, function() {
     console.log("Running on " + port)

@@ -49,6 +49,7 @@ router.post("/login", async function (request, response) {
               email: user.email,
               token,
             });
+            console.log("Login Successful")
           })
           .catch((error) => {
             response.status(400).send({
