@@ -8,6 +8,7 @@ const User = require("../models/user.model.js")
 const cookieParser = require('cookie-parser')
 router.use(cookieParser())
 
+
 router.post("/signup", async (req, res) => {
     const user = new User({
         username: req.body.username,
@@ -25,7 +26,7 @@ router.post("/signup", async (req, res) => {
 router.post("/login", async function (request, response) {
   try {
     const user = await User.findOne( { email: request.body.email } )
-
+    console.log(request.body)
     if (user) {
         bcrypt
           .compare(request.body.password, user.password)
