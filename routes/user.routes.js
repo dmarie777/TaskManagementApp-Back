@@ -1,11 +1,11 @@
-const express = require('express')
-const jwt = require("jsonwebtoken");
-const router = express.Router()
-const bcrypt = require('bcrypt')
-const User = require("../models/user.model.js")
+import express from "express";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
+import User from "../models/user.model.js";
+import cookieParser from "cookie-parser";
 
-//cookie-parser installed so that Express can parse cookies passed by our borwser
-const cookieParser = require('cookie-parser')
+const router = express.Router();
+
 router.use(cookieParser())
 
 
@@ -69,4 +69,5 @@ router.post("/login", async function (request, response) {
   }
 });
 
-module.exports = router
+export default router;
+

@@ -1,5 +1,6 @@
-const mongoose = require("mongoose") // We need to modify the mongoose model or way that our information is stored
-const bcrypt = require('bcrypt')
+import mongoose from "mongoose";
+import bcrypt from "bcrypt";
+
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -53,4 +54,5 @@ const User = mongoose.model(
     "User",
     userSchema
 )
-module.exports = User
+
+export default User;
