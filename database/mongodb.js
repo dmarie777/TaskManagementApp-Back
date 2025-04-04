@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
+import { DB_URI } from "../config/env.js";
+
+
 
 const connectToDatabase = async () => {
     try {
-        await mongoose.connect(`mongodb://127.0.0.1:27017/taskmanagementapp`,{
-            useNewUrlparser:true,
-            useUnifiedTopology: true});
+        await mongoose.connect(DB_URI);
             console.log("Successfully connect to Mongo");
 
     } catch (error) {
