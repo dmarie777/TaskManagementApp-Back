@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import cookieParser from 'cookie-parser';
 import logger from "morgan";
 import authRouter from './routes/auth.routes.js';
+import userRouter from './routes/user.routes.js';
 import connectToDatabase from "./database/mongodb.js";
 
 const app = express()
@@ -17,6 +18,7 @@ app.use(cookieParser());
 
 
 app.use('/api', authRouter)
+app.use('/users', userRouter)
 
 app.get('/', (req, res) => {
     res.json({ message: "Hello World!"})
